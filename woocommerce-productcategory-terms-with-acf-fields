@@ -1,0 +1,23 @@
+<?php
+
+//Echoes a grid of Woocommerce product category terms with some ACF fields.
+
+$taxonomyName = "product_cat"; // Define taxonomy prefix eg category
+$parent_terms = get_terms($taxonomyName, array('parent' => 0, 'orderby' => 'slug', 'hide_empty' => true)); //This gets top layer terms only.  This is done by setting parent to 0.  
+    
+    echo '<div class="proizvodi-grid">';
+      foreach ($parent_terms as $pterm) {
+          $thumbnail_id = get_woocommerce_term_meta($pterm->term_id, 'thumbnail_id', true);
+          $image = wp_get_attachment_url($thumbnail_id); // get the image URL for parent category
+          $color = get_field( 'boja_kategorije', 'product_cat' . '_' . $pterm->term_id );
+
+            echo '<a href="' . get_term_link($pterm->name, $taxonomyName) . '">'; // print the IMG HTML for parent category
+              echo '<div class="proizvodi-grid__single" style="background-color:' . $color .'">';
+                echo "<img src='{$image}' alt='' width='236' height='236' />";
+                echo '<span class="proizvodi-grid--gumb">' . 'POGLEDAJ ➝' . '</span>';
+                echo '<span class="proizvodi-grid--naslov">' . $pterm->name . '</span>';
+              echo '</div>';
+            echo '</a>';
+            }
+      echo '</div>';
+?>

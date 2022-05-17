@@ -1,0 +1,29 @@
+<?php
+
+$YOUR_ACF_FIELD = get_field( 'YOUR_ACF_FIELD' );
+$max = 1; //number of items to show
+$get_terms_args = array(
+		'taxonomy' => 'YOUR_TAXONOMY',
+		'hide_empty' => 0,
+		'include' => $YOUR_ACF_FIELD
+	); 
+$terms = get_terms( $get_terms_args );
+
+// Random order
+shuffle($terms);
+
+// Get first $max items
+$terms = array_slice($terms, 0, $max);
+
+// Sort by name
+usort($terms, function($a, $b){
+  return strcasecmp($a->name, $b->name);
+});
+
+// Echo random terms sorted alphabetically
+if ($terms) {
+  foreach($terms as $term) {
+    echo '<a class="button-pink top" href="' .get_term_link( $term, $taxonomy ) . '" ' . '>' . '<span>I FEEL LUCKY</span>'.'</a> ';
+  }
+}
+?>

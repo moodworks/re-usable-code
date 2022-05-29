@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @moodworks.
 - 👀 I’m interested in php, js and Wordpress.
-- 🌱 I’m currently learning life.
+- 🌱 I’m currently learning life and enjoying life.
 - 📫 How to reach me ... https://mood.works
 
 <!---

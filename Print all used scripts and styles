@@ -1,0 +1,34 @@
+<?php 
+// As Admin, visit the page that you want to see  the enqueued scripts and stylesheets for
+add_action('init','print_scripts_and_stylesheets');
+function print_scripts_and_stylesheets(){
+    $user = wp_get_current_user();
+    $allowed_roles = array('administrator');
+ if( array_intersect($allowed_roles, $user->roles ) ) {
+   // Stuff here for allowed roles
+   function se_inspect_styles() {
+        global $wp_styles;
+        echo "<h2>Enqueued CSS Stylesheets</h2><ul>";
+        foreach( $wp_styles->queue as $handle ) :
+            echo "<li>" . $handle . "</li>";
+        endforeach;
+        echo "</ul>";
+    }
+    add_action( 'wp_print_styles', 'se_inspect_styles' );
+    
+    function se_inspect_scripts() {
+        global $wp_scripts;
+        echo "<h2>Enqueued JS Scripts</h2><ul>";
+        foreach( $wp_scripts->queue as $handle ) :
+            echo "<li>" . $handle . "</li>";
+        endforeach;
+        echo "</ul>";
+    }
+    add_action( 'wp_print_scripts', 'se_inspect_scripts' );
+} 
+}
+
+
+
+
+

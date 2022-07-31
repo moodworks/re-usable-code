@@ -27,8 +27,3 @@ function print_scripts_and_stylesheets(){
     add_action( 'wp_print_scripts', 'se_inspect_scripts' );
 } 
 }
-
-
-
-
-

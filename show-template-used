@@ -1,0 +1,10 @@
+<?php
+
+function mood_which_template_is_loaded() {
+	if ( is_super_admin() ) {
+		global $template;
+		print_r( $template );
+	}
+}
+ 
+add_action( 'wp_footer', 'mood_which_template_is_loaded' );

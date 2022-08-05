@@ -1,0 +1,46 @@
+/*Normalize*/
+body {
+  padding: 0;
+  margin: 0;
+}
+/* Create 2 columns and constrain them to content max-width */
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(1280px, 100%)
+    1fr;
+}
+.wrapper > * {
+  grid-column: 2;
+  text-align: left;
+  flex-direction: row;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Bleed all columns */
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
+}
+.column {
+	width: 100%;
+}
+
+/* Bleed left column, constrain right column */
+.full-bleed.left {
+	grid-column: 1 / 3;
+}
+.full-bleed.left .column:last-child {
+  padding-right: var(--padding);
+}
+
+/* Bleed right column, constrain left column */
+.full-bleed.right {
+  grid-column: 2 / -1;
+}
+/*Set global padding var*/
+.full-bleed.right .column:first-child {
+  padding-left: var(--padding);
+}

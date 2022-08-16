@@ -1,0 +1,14 @@
+jQuery(document).ready(function() {
+// get bdi elements inside OxyExtras minicart
+var bdi = document.querySelectorAll("div.widget_shopping_cart_content bdi");
+for (var i = 0; i < bdi.length; i++) {
+    // get the text content of the bdi element
+    var text = bdi[i].textContent;
+    // replace string kn with empty string
+    var newText = text.replace("kn", "");
+    // divide newText by 7.53450 and round to 2 decimal places
+    var finalText = (newText / 7.53450).toFixed(2);
+    // display the text content after the bdi element using a span
+    bdi[i].insertAdjacentHTML('afterend', '<span> &nbsp (€' + finalText + ')</span>');
+}
+});

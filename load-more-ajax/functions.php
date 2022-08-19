@@ -1,7 +1,7 @@
 <?php 
 //ADD TO FUNCTIONS.PHP
 function load_more_enqueue_script_style() {
-    if (is_post_type_archive('kampanja')) {
+    if (is_post_type_archive('YOUR-POST-TYPE-SLUG')) {
         wp_enqueue_script('load-more', get_template_directory_uri() . '/assets/js/load-more.js', array('jquery'), false, true);
     }
     // Localize the script with new data

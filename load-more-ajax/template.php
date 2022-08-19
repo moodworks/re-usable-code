@@ -1,4 +1,5 @@
-    <div class="wrap">
+<?php
+<div class="wrap">
         <div id="primary" class="content-area">
             <?php $args = array(
                 'post_type' => 'YOUR-POST-TYPE-HERE',

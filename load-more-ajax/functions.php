@@ -19,7 +19,7 @@ function load_more_enqueue_script_style() {
     check_ajax_referer('load_more_posts', 'security');
     $paged = $_POST['page'];
     $args = array(
-      'post_type' => 'kampanja',
+      'post_type' => 'YOUR-POST-TYPE-SLUG',
       'post_status' => 'publish',
       'posts_per_page' => '3',
       'paged' => $paged,

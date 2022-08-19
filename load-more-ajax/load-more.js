@@ -1,3 +1,4 @@
+// ADD TO assets/js IN THE THEME FOLDER
 jQuery( document ).ready( function(){
     var page = 2;
     jQuery( function($) {
